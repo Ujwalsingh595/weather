@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>weather forecast</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="container">
+	<div class="center_div">
+		<h1>Search weather of  your  city</h1><div class="input_box">
+		<input type="textbox" name=""id="inp"placeholder="Enter the name of your city">
+		</div>
+		<button id="btn">Click here</button>
+		<div id="info"></div>
+	</div>
+</div>
+<script type="text/javascript">
+	document.getElementById('btn').onclick=()=>{
+		p=document.getElementById("inp").value;
+fetch(`http://api.openweathermap.org/data/2.5/weather?q=${p}&units=metric&APPID=ea64f654086c3084c4f2bfd4b7316361`)
+		.then(data=>{
+			return data.json()})
+		.then(res=>{
+			document.getElementById("info").innerHTML=`
+			<ul>
+			<li>City: ${res.name}</li>
+			<li>Temp in C: ${res.main.temp}</li>
+			<li>Description: ${res.weather[0].description}</li>
+			</ul>
+
+			`
+		})
+	}
+</script>
+</body>
+</html>
