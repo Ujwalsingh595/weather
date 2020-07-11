@@ -17,7 +17,7 @@
 <script type="text/javascript">
 	document.getElementById('btn').onclick=()=>{
 		p=document.getElementById("inp").value;
-fetch(`http://api.openweathermap.org/data/2.5/weather?q=${p}&units=metric&APPID=ea64f654086c3084c4f2bfd4b7316361`)
+fetch(`https://api.openweathermap.org/data/2.5/weather?q=${p}&units=metric&APPID=ea64f654086c3084c4f2bfd4b7316361`)
 		.then(data=>{
 			return data.json()})
 		.then(res=>{
